@@ -7,7 +7,7 @@ app.use(express.json());
 
 // Rota de exemplo
 app.get('/', (req, res) => {
-  res.send('Olá, mundo! Este é o meu primeiro servidor backend em Node.js!');
+  res.send('Olá, mundo!! Este é o meu primeiro servidor backend em Node.js!');
 });
 
 // Outra rota de exemplo para testar POST
