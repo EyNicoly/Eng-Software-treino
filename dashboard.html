@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitPro - Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <div class="dashboard">
+    <aside class="sidebar">
+      <h2>FitPro</h2>
+      <nav>
+        <ul>
+          <li><a href="#" id="nav-treinos" class="nav-link active">🏋️ Meus Treinos</a></li>
+          <li><a href="#" id="nav-dieta" class="nav-link">🍎 Minha Dieta</a></li>
+          <li><a href="#" id="nav-progresso" class="nav-link">📊 Progresso</a></li>
+          <li><a href="#" id="nav-perfil" class="nav-link">⚙️ Meu Perfil</a></li>
+        </ul>
+      </nav>
+      <button class="logout" onclick="logout()">Sair</button>
+    </aside>
+
+    <main class="content">
+      <!-- Seção Treinos -->
+      <div id="treinos-section" class="dashboard-section">
+        <h1>Meus Treinos 💪</h1>
+        <div class="section-actions">
+          <button class="btn-primary" onclick="showAddTreinoForm()">+ Adicionar Treino</button>
+        </div>
+        
+        <div id="add-treino-form" class="form-modal hidden">
+          <div class="form-box">
+            <h3>Novo Treino</h3>
+            <input type="text" id="treino-nome" placeholder="Nome do treino">
+            <textarea id="treino-descricao" placeholder="Descrição do treino"></textarea>
+            <div class="form-actions">
+              <button class="btn-primary" onclick="addTreino()">Salvar</button>
+              <button class="btn-secondary" onclick="hideAddTreinoForm()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="treinos-list" class="items-list">
+          <!-- Treinos serão carregados aqui -->
+        </div>
+      </div>
+
+      <!-- Seção Dieta -->
+      <div id="dieta-section" class="dashboard-section hidden">
+        <h1>Minha Dieta 🍎</h1>
+        <div class="section-actions">
+          <button class="btn-primary" onclick="showAddRefeicaoForm()">+ Adicionar Refeição</button>
+        </div>
+        
+        <div id="add-refeicao-form" class="form-modal hidden">
+          <div class="form-box">
+            <h3>Nova Refeição</h3>
+            <input type="text" id="refeicao-nome" placeholder="Nome da refeição">
+            <input type="time" id="refeicao-horario" placeholder="Horário">
+            <textarea id="refeicao-alimentos" placeholder="Alimentos (ex: 100g frango, 150g arroz)"></textarea>
+            <div class="form-actions">
+              <button class="btn-primary" onclick="addRefeicao()">Salvar</button>
+              <button class="btn-secondary" onclick="hideAddRefeicaoForm()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="refeicoes-list" class="items-list">
+          <!-- Refeições serão carregadas aqui -->
+        </div>
+      </div>
+
+      <!-- Seção Progresso -->
+      <div id="progresso-section" class="dashboard-section hidden">
+        <h1>Progresso 📊</h1>
+        <div class="progress-cards">
+          <div class="progress-card">
+            <h3>Peso Atual</h3>
+            <p id="peso-atual">-- kg</p>
+          </div>
+          <div class="progress-card">
+            <h3>IMC</h3>
+            <p id="imc-atual">--</p>
+          </div>
+          <div class="progress-card">
+            <h3>Treinos Realizados</h3>
+            <p id="treinos-realizados">0</p>
+          </div>
+        </div>
+        
+        <div class="form-box">
+          <h3>Registrar Peso</h3>
+          <input type="number" id="novo-peso" placeholder="Peso atual (kg)" step="0.1">
+          <button class="btn-primary" onclick="registrarPeso()">Registrar</button>
+        </div>
+      </div>
+
+      <!-- Seção Perfil -->
+      <div id="perfil-section" class="dashboard-section hidden">
+        <h1>Meu Perfil ⚙️</h1>
+        <div class="form-box">
+          <h3>Informações Pessoais</h3>
+          <input type="text" id="perfil-nome" placeholder="Nome completo">
+          <input type="email" id="perfil-email" placeholder="E-mail">
+          <input type="number" id="perfil-idade" placeholder="Idade">
+          <input type="number" id="perfil-altura" placeholder="Altura (cm)">
+          <input type="number" id="perfil-peso" placeholder="Peso (kg)" step="0.1">
+          <select id="perfil-objetivo">
+            <option value="">Selecione seu objetivo</option>
+            <option value="perda-peso">Perda de peso</option>
+            <option value="ganho-massa">Ganho de massa muscular</option>
+            <option value="manutencao">Manutenção</option>
+            <option value="definicao">Definição muscular</option>
+          </select>
+          <button class="btn-primary" onclick="salvarPerfil()">Salvar Alterações</button>
+        </div>
+
+        <div class="form-box">
+          <h3>Alterar Senha</h3>
+          <input type="password" id="senha-atual" placeholder="Senha atual">
+          <input type="password" id="nova-senha" placeholder="Nova senha">
+          <input type="password" id="confirmar-senha" placeholder="Confirmar nova senha">
+          <button class="btn-primary" onclick="alterarSenha()">Alterar Senha</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
+
